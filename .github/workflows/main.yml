@@ -1,9 +1,10 @@
-name: CI Java 17 App - SonarQube
+name: CI Java 18 App using SonarQube
 
 on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
@@ -16,13 +17,13 @@ jobs:
 
       # 1. Checkout source code
       - name: Code Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
-      # 2. Setup Java 17
+      # 2. Setup Java 18
       - name: Set up JDK 18
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '18'
           distribution: 'temurin'
@@ -34,7 +35,7 @@ jobs:
           java -version
           mvn -version
 
-      # 4. Build and SonarQube Code Analysis
+      # 4. Build + SonarQube Analysis
       - name: Build and SonarQube Analysis
         run: |
           mvn -B clean verify \
