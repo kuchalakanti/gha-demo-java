@@ -40,6 +40,6 @@ jobs:
         run: |
           mvn -B clean verify \
             org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-            -Dsonar.projectKey=Java-App-GHA \
+            -Dsonar.projectKey=Java App GHA \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.token=${{ secrets.SONAR_TOKEN }}
