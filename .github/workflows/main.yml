@@ -43,3 +43,10 @@ jobs:
             -Dsonar.projectKey=Boardgame \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+      - name: Build Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: kuchalakantikris/java-gha:latest
+          
